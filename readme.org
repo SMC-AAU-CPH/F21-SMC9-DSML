@@ -1,4 +1,4 @@
-#+title: Data science and machine learning in chemical engineering
+#+title: Data science and machine learning in Sound and Music Computing
 
 All the magic happens in [[./org/index.org]].
 
