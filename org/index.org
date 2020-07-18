@@ -26,9 +26,10 @@ Good luck!
 - org :: the org-files for the notebooks  [[./org]]
 - docs :: the place to publish the html files
 - docs/notebooks :: place to publish the notebooks
+- docs/md :: place to publish the markdown files (for Moodle / Notion)
 
-https://github.com/jkitchin/f19-06623/tree/master/docs
-https://github.com/jkitchin/f19-06623/blob/master/docs/notebooks/00-intro.ipynb
+# https://github.com/jkitchin/f19-06623/tree/master/docs
+# https://github.com/jkitchin/f19-06623/blob/master/docs/notebooks/00-intro.ipynb
 
 Note I did a fair bit of editing of results that had output that looked like links.
 
@@ -41,7 +42,7 @@ Note I did a fair bit of editing of results that had output that looked like lin
  :export (lambda (path desc backend)
 	   (let* ((html-path (concat (substring path 0 -4) ".html"))
 		  (ipynb (concat (substring path 0 -4) ".ipynb"))
-		  (colab (format "<a href=\"https://colab.research.google.com/github/jkitchin/s20-06681/blob/master/docs/notebooks/%s\" target=\"_blank\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open in Colab\" title=\"Open and Execute in Google Colaboratory\"></a>"
+		  (colab (format "<a href=\"https://colab.research.google.com/github/SMC-AAU-CPH/F21-SMC9-DSML/blob/master/docs/notebooks/%s\" target=\"_blank\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open in Colab\" title=\"Open and Execute in Google Colaboratory\"></a>"
 				 ipynb)))
              (cond
               ((eq 'md backend)
@@ -60,33 +61,47 @@ Note I did a fair bit of editing of results that had output that looked like lin
 (require 'ox-publish)
 (setq org-publish-project-alist
       '(("html"
-	 :base-directory "/Users/jkitchin/Desktop/s20-06681/org/"
+	 :base-directory "/Users/SMC-AAU-CPH
+/Desktop/F21-SMC9-DSML
+/org/"
 	 :base-extension "org"
-	 :publishing-directory "/Users/jkitchin/Desktop/s20-06681/docs/"
+	 :publishing-directory "/Users/SMC-AAU-CPH
+/Desktop/F21-SMC9-DSML
+/docs/"
 	 :recursive t
 	 :publishing-function org-html-publish-to-html
 	 :auto-preamble t)
 	("notebooks"
-	 :base-directory "/Users/jkitchin/Desktop/s20-06681/org/"
+	 :base-directory "/Users/SMC-AAU-CPH
+/Desktop/F21-SMC9-DSML
+/org/"
 	 :base-extension "org"
-	 :publishing-directory "/Users/jkitchin/Desktop/s20-06681/docs/notebooks"
+	 :publishing-directory "/Users/SMC-AAU-CPH
+/Desktop/F21-SMC9-DSML
+/docs/notebooks"
 	 :recursive t
 	 :publishing-function ox-ipynb-publish-to-notebook
 	 :auto-preamble t)
 	("static-html"
-	 :base-directory "/Users/jkitchin/Desktop/s20-06681/org/"
+	 :base-directory "/Users/SMC-AAU-CPH
+/Desktop/F21-SMC9-DSML
+/org/"
 	 :base-extension "xlsx\\|css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|dat\\|mat\\|txt\\|svg"
-	 :publishing-directory "/Users/jkitchin/Desktop/s20-06681/docs/"
+	 :publishing-directory "/Users/SMC-AAU-CPH
+/Desktop/F21-SMC9-DSML
+/docs/"
 	 :exclude "org\\|notebooks\\|html"
 	 :recursive t
 	 :publishing-function org-publish-attachment)
 
 
 	;; ... all the components ...
-	("s20-06681" :components ("html" "notebooks"
+	("F21-SMC9-DSML
+" :components ("html" "notebooks"
 			      "static-html"))))
 
-(org-publish "s20-06681" t)
+(org-publish "F21-SMC9-DSML
+" t)
 #+END_SRC
 
 #+RESULTS:

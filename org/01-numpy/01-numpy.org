@@ -2,8 +2,10 @@
 
 Today we are going to jump right into loading data from files into numpy arrays. Once we have the arrays, then we will then start learning how to use them.
 
-* Loading data from a text file
+* TODO Loading data from a text file
 
+  - Note taken on [2020-07-18 Sat 18:01] \\
+    Need a more contextualized example and provide data.
 Usually, data will be in a file, and we need to read it in. There are /many/ data formats to get familiar with, and /many/ ways to read them in. Let's start by looking at data from a Raman spectrometer.
 
 Let's start by downloading a file. This is a file I have saved on my Google Drive. Note the URL is basically meaningless to us. We download the contents there and save it in the file called 01-raman.txt.
@@ -17,9 +19,9 @@ urllib.request.urlretrieve(url, '01-raman.txt')
 
 #+RESULTS:
 :results:
-# Out [27]:
+# Out [1]: 
 # text/plain
-: ('01-raman.txt', <http.client.HTTPMessage at 0x10776e7d0>)
+: ('01-raman.txt', <http.client.HTTPMessage at 0x10e50e6d0>)
 :end:
 
 Now, in this directory there is a file called 01-raman.txt. The file name suggests it is Raman data, but only because of its name. The extension /suggests/ this is text data, but does not tell us the format.
@@ -42,7 +44,7 @@ print(lines[0:10])
 
 #+RESULTS:
 :results:
-# Out [28]:
+# Out [2]: 
 # output
 7620 lines in the file
 ['500\t294.37869\n', '500.39374\t288.922\n', '500.78751\t286.06622\n', '501.18124\t275.22284\n', '501.57501\t275.11938\n', '501.96875\t287.81372\n', '502.36252\t299.50803\n', '502.75626\t285.56567\n', '503.15002\t292.69519\n', '503.54376\t295.33951\n']
@@ -64,11 +66,10 @@ print(f'Outside: {f.closed}')
 
 #+RESULTS:
 :results:
-# Out [29]:
+# Out [3]: 
 # output
 Inside: False
 Outside: True
-
 :end:
 
 ** Simple loading into numpy
@@ -83,7 +84,7 @@ data
 
 #+RESULTS:
 :results:
-# Out [30]:
+# Out [4]: 
 # text/plain
 : array([[ 500.      ,  294.37869 ],
 :        [ 500.39374 ,  288.922   ],
@@ -103,7 +104,7 @@ data.shape
 
 #+RESULTS:
 :results:
-# Out [31]:
+# Out [5]: 
 # text/plain
 : (7620, 2)
 :end:
@@ -119,7 +120,7 @@ intensity = data[:, 1]
 
 #+RESULTS:
 :results:
-# Out [32]:
+# Out [6]: 
 # text/plain
 : ((7620,), (7620,))
 :end:
@@ -135,7 +136,7 @@ wavenumber, intensity = data.T
 
 #+RESULTS:
 :results:
-# Out [33]:
+# Out [7]: 
 # text/plain
 : ((7620,), (7620,))
 :end:
@@ -230,7 +231,7 @@ plt.ylabel('Intensity')
 
 
 
- Now, we have a graphical representation of this data set. You can interact with it in the notebook. You can see the coordinates, and zoom in on regions. Suppose we want to make sure we /reproducibly/ zoom in to a region though. That requires us to script it so that you have a written record of what you did.
+Now, we have a graphical representation of this data set. You can interact with it in the notebook. You can see the coordinates, and zoom in on regions. Suppose we want to make sure we /reproducibly/ zoom in to a region though. That requires us to script it so that you have a written record of what you did.
 
 Let's make a plot of a subset of the spectrum, say the points where the wavenumber is at least 1000, and less than 1500. To do that, we need a way to select the data subset. We can use indexing for this purpose. We define a /boolean/ array where it is True for the points we want, and False for the ones we do not want. The comparison operators will do this, and the logical & operator combines the two conditions. Note these are all elementwise operations.
 
@@ -269,7 +270,7 @@ True + True
 
 #+RESULTS:
 :results:
-# Out [41]:
+# Out [8]: 
 # text/plain
 : 2
 :end:
@@ -464,7 +465,7 @@ plt.ylabel('intensity')
 
 ** more complex delimited files
 
-First, we will retrieve this data from a URL. This time, we get a data file from NIST.
+First, we will retrieve this data from a URL. This time, we get a data file from NIST. {>~ @ce what is NIST?~<}
 
 #+BEGIN_SRC ipython
 fname = '01-p-t.dat'
@@ -839,4 +840,9 @@ Next time, we will focus on more advanced plotting methods that are even more in
 
 * Exercises on your own
 
-Find some data files, learn how to read them into Python and make a plot of the data in them. Discuss any difficulties you are have in the class discussion board or Piazza.
+Find some data files, learn how to read them into Python and make a plot of the data in them. 
+
+Discuss any difficulties you are have in the class discussion board or Piazza.
+# Local Variables:
+# eval: (sem-mode)
+# End:

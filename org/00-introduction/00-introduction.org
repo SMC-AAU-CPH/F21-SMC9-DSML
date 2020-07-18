@@ -1,6 +1,6 @@
-#+title: Data science and machine learning in chemical engineering
+#+title: Data science and machine learning in sound and music computing
 
-This class is about data, models and data analysis in chemical engineering. We will cover topics including
+This class is about data, models and data analysis in media technology. We will cover topics including
 
 - Reading data from different sources (urls, files, etc)
 - Visualization of data
@@ -14,7 +14,8 @@ The class will utilize Python and Jupyter notebooks. I am going to assume you ha
 
 We will be using Jupyter notebooks for most lectures and assignments. We will try to run these through the Jupyter lab environment.
 
-You will typically need to download some class files from Canvas, and put them in a convenient place. I recommend you make a class folder in a convenient place for you.
+You will typically need to download some class files from Canvas, and put them in a convenient place. 
+I recommend you make a class folder in a convenient place for you.
 
 You should open a shell, navigate to the location of your class files, and then run =jupyter lab= in the shell.
 
@@ -110,7 +111,8 @@ You will be using both code and Markdown cells to document what you are doing, w
 Jupyter notebooks are a way to /communicate/ your work. The are also /executable/ documents. Some important points to remember:
 
 1. The code is for a computer, and it represents your attempt to convert some idea in your head into an executable program.
-2. You cannot expect others to read your mind and guess what your intentions were. You have to use the narrative text in the Markdown cells to explain what you are trying to do, what approximations you have to make to accomplish it.
+2. You cannot expect others to read your mind and guess what your intentions were.
+   You have to use the narrative text in the Markdown cells to explain what you are trying to do, what approximations you have to make to accomplish it.
 
 Let's see a real example of this. Don't worry about what this code means yet, it is an idea I want to get across.
 
@@ -135,7 +137,8 @@ It is hard to tell. I know (for now) what is in my head, but even future me will
 
 Compare that to:
 
-I want to compute the integral $y = \int_0^\pi sin(x) dx$. I will approximate the integral using the trapezoid rule, and vectorize it as described at https://berkeley-stat159-f17.github.io/stat159-f17/lectures/09-intro-numpy/trapezoid..html
+I want to compute the integral $y = \int_0^\pi sin(x) dx$. 
+I will approximate the integral using the trapezoid rule, and vectorize it as described at https://berkeley-stat159-f17.github.io/stat159-f17/lectures/09-intro-numpy/trapezoid..html
 
 #+BEGIN_SRC ipython
 import numpy as np
@@ -179,13 +182,13 @@ Data are things we measure, assume to be facts, and that we use to learn about t
 
 For example, here are two sets of data on my weight:
 
-1. [7.5, 46, 150, 157]
-2. [156, 155, 158, 157]
+1. [ 18,  46,  78, 107]
+2. [107, 105, 108, 107]
 
 
-We are missing some context on these. The first set is data over four decades, while the second set is over four days. It doesn't really make sense to average the first set, whereas the average of the second set gives you a good idea of how my weight fluctuates on a daily basis.
+We are missing some *context* on these. The first set is data over four decades, while the second set is over four days. It doesn't really make sense to average the first set, whereas the average of the second set gives you a good idea of how my weight fluctuates on a daily basis.
 
-Data by itself is not helpful. It is analysis of data that is helpful, but you have to know what the data is supposed to represent to know if the analysis is helpful.
+Data by itself is not helpful. It is analysis of data that is helpful, but you have to know what the data is supposed to represent to know if the *analysis* is helpful.
 
 There are many kinds of analysis one can do: statistical, regression, integration, etc. Each of these has the purpose of extracting information from the data.
 
@@ -194,19 +197,19 @@ Let's consider the average and standard deviation of the second weights above. T
 #+BEGIN_SRC ipython
 import numpy as np
 
-weights = np.array([156, 155, 158, 157])
-print(f'My average weight is {np.mean(weights)} \pm {np.std(weights):1.1f} lbs.')
+weights = np.array([107, 105, 108, 107])
+print(f'My average weight is {np.mean(weights)} \pm {np.std(weights):1.1f} kg.')
 #+END_SRC
 
 #+RESULTS:
 :results:
-# Out [4]:
+# Out [1]: 
 # output
-My average weight is 156.5 \pm 1.1 lbs.
+My average weight is 106.75 \pm 1.1 kg.
 
 :end:
 
-This analysis makes sense /if/ we think my weight fluctuates about some average with a normal distribution of fluctuations. We do not have enough data to determine if it is normal here, but it is worth noting that assumption underlies the analysis. Note, we also assume that each measurement is independent, and uncorrelated with the previous and next measurement. If I weigh myself only once a day, that is probably reasonable. If these are sequential weights separated by 1 minute, then either something is wrong with the scale or, I am doing something funny in how I weigh myself.
+This analysis makes sense /if/ we think my weight fluctuates about some average with a _normal distribution_ of fluctuations. We do not have enough data to determine if it is normal here, but it is worth noting that assumption underlies the analysis. Note, we also assume that each measurement is independent, and uncorrelated with the previous and next measurement. If I weigh myself only once a day, that is probably reasonable. If these are sequential weights separated by 1 minute, then either something is wrong with the scale or, I am doing something funny in how I weigh myself.
 
 What factors could affect the weight measurement?
 1. What am I wearing?
